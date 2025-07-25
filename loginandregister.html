@@ -5,8 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriLink | Livestock Waste Exchange for Philippine Farmers</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="loginandregister.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="loginandregister.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e9f5ec 0%, #b6e2c8 50%, #f7fafc 100%);
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80'), linear-gradient(135deg, #e9f5ec 0%, #b6e2c8 50%, #f7fafc 100%);
+            background-size: cover, 100%;
+            background-position: center, center;
+            background-repeat: no-repeat, repeat;
+            min-height: 100vh;
+        }
+        .tab.active {
+            background-color: #2f855a;
+            color: #fff;
+        }
+        .tab.inactive {
+            background-color: #e9f5ec;
+            color: #38a169;
+        }
+        .form-container {
+            background: #fff;
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #38a169, #2f855a);
+            color: #fff;
+            transition: all .2s;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(to right, #2f855a, #38a169);
+        }
+        .link-color {
+            color: #38a169;
+        }
+        .link-color:hover {
+            color: #2f855a;
+            text-decoration: underline;
+        }
+        .language-switcher {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            z-index: 100;
+        }
+    </style>
 </head>
 <body class="min-h-screen flex items-center justify-center bg-gray-100">
     <div class="fixed inset-0 bg-gradient-to-br from-green-800 to-green-600"></div>
@@ -23,7 +66,7 @@
         </div>
         <div class="form-container p-8 rounded-b-lg rounded-tr-lg shadow-xl">
             <!-- Login Form -->
-            <div id="login-form" class="space-y-6">
+            <form id="login-form" class="space-y-6">
                 <div class="text-center">
                     <h2 class="text-2xl font-bold text-gray-800">Welcome Back!</h2>
                     <p class="mt-2 text-gray-600">Login to connect with farmers across the Philippines</p>
@@ -38,7 +81,7 @@
                     <div>
                         <div class="flex justify-between">
                             <label for="login-password" class="block text-sm font-medium text-gray-700">Password</label>
-                            <a href="#" class="text-sm link-color">Forgot password?</a>
+                            <a href="forgetpassword.html" class="text-sm link-color">Forgot password?</a>
                         </div>
                         <div class="mt-1">
                             <input id="login-password" name="password" type="password" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
@@ -66,12 +109,12 @@
                     </button>
                 </div>
                 <div class="text-sm text-center">
-                    Don't have an account? <button onclick="showRegister()" class="font-medium link-color">Sign up</button>
+                    Don't have an account? <button type="button" onclick="showRegister()" class="font-medium link-color">Sign up</button>
                 </div>
-            </div>
+            </form>
 
             <!-- Register Form -->
-            <div id="register-form" class="hidden space-y-6">
+            <form id="register-form" class="hidden space-y-6">
                 <div class="text-center">
                     <h2 class="text-2xl font-bold text-gray-800">Create an Account</h2>
                     <p class="mt-2 text-gray-600">Join our community to trade livestock waste for crops</p>
@@ -119,19 +162,7 @@
                             <input id="confirm-password" name="confirm-password" type="password" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
                         </div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Are you a...</label>
-                        <div class="mt-1 space-y-2">
-                            <div class="flex items-center">
-                                <input id="livestock-farmer" name="user-type" type="radio" checked class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300">
-                                <label for="livestock-farmer" class="ml-2 block text-sm text-gray-700">Livestock Farmer</label>
-                            </div>
-                            <div class="flex items-center">
-                                <input id="crop-farmer" name="user-type" type="radio" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300">
-                                <label for="crop-farmer" class="ml-2 block text-sm text-gray-700">Crop Farmer</label>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Removed Are you a... section -->
                     <div class="flex items-center">
                         <input id="terms" name="terms" type="checkbox" required class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded">
                         <label for="terms" class="ml-2 block text-sm text-gray-700">I agree to the <a href="#" class="link-color">Terms of Service</a> and <a href="#" class="link-color">Privacy Policy</a></label>
@@ -141,9 +172,9 @@
                     </div>
                 </div>
                 <div class="text-sm text-center">
-                    Already have an account? <button onclick="showLogin()" class="font-medium link-color">Sign in</button>
+                    Already have an account? <button type="button" onclick="showLogin()" class="font-medium link-color">Sign in</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
@@ -190,12 +221,14 @@
                 alert("Password must be at least 8 characters with at least 1 number");
                 return;
             }
-            alert("Registration successful! Redirecting to dashboard...");
+            // Redirect to OTP confirmation page after successful registration
+            window.location.href = "otp-confirmation.html";
         });
 
+        // Redirect to OTP confirmation after login
         document.getElementById('login-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            alert("Login successful! Redirecting to dashboard...");
+            window.location.href = "otp-confirmation.html";
         });
     </script>
 </body>

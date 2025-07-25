@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="agrilink-waste-exchange.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -16,6 +17,7 @@
             <a href="#" class="logo">Agri<span>Link</span></a>
             <ul class="nav-links">
                 <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#suggestion-list">Suggestion List</a></li>
                 <li><a href="#marketplace">Marketplace</a></li>
                 <li><a href="#benefits">Benefits</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -28,7 +30,7 @@
         <h1>Connecting Livestock Waste to Crop Farmers</h1>
         <p>AgriLink transforms organic waste into valuable resources, creating sustainable partnerships between livestock and crop farmers across the Philippines</p>
         <div>
-            <a href="#marketplace" class="btn">Browse Listings</a>
+            <a href="#suggestion-list" class="btn">Suggestion List</a>
             <a href="#how-it-works" class="btn btn-outline">Learn More</a>
         </div>
     </header>
@@ -53,53 +55,67 @@
             </div>
         </div>
     </section>
-    
-    <section id="marketplace" class="marketplace">
-        <div class="container">
-            <h2 class="section-title">Current Listings</h2>
-            <div class="listings">
-                <div class="listing-card">
-                    <div class="listing-image">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6cd44865-88c8-403d-8e89-9efebd92b797.png" alt="Fresh poultry manure being collected at a chicken farm in Bulacan, Philippines" />
-                    </div>
-                    <div class="listing-content">
-                        <h3 class="listing-title">Chicken Manure</h3>
-                        <div class="listing-location">
-                            <i class="fas fa-map-marker-alt"></i> Bulacan, Philippines
-                        </div>
-                        <div class="listing-price">₱500 per sack</div>
-                        <span class="listing-type">For Sale</span>
-                    </div>
+
+    <!-- Suggestion List Section -->
+    <section id="suggestion-list" class="container">
+        <h2 class="section-title">Suggestion List for Crop Farmers</h2>
+        <div class="listings">
+            <div class="listing-card">
+                <div class="listing-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6cd44865-88c8-403d-8e89-9efebd92b797.png" alt="Chicken Manure" />
                 </div>
-                <div class="listing-card">
-                    <div class="listing-image">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/22e8a4a0-4338-4022-841f-ff1dbdfc46da.png" alt="Aged and composted pig manure ready for agriculture use in Laguna province" />
-                    </div>
-                    <div class="listing-content">
-                        <h3 class="listing-title">Composted Pig Manure</h3>
-                        <div class="listing-location">
-                            <i class="fas fa-map-marker-alt"></i> Laguna, Philippines
-                        </div>
-                        <div class="listing-price">Free (Pickup Only)</div>
-                        <span class="listing-type">Free Exchange</span>
-                    </div>
-                </div>
-                <div class="listing-card">
-                    <div class="listing-image">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1f9b8452-0a8e-49b2-b20e-a0243838c4e4.png" alt="Cow dung being processed into organic fertilizer at a dairy farm in Batangas" />
-                    </div>
-                    <div class="listing-content">
-                        <h3 class="listing-title">Pre-processed Cattle Manure</h3>
-                        <div class="listing-location">
-                            <i class="fas fa-map-marker-alt"></i> Batangas, Philippines
-                        </div>
-                        <div class="listing-price">₱350 per sack</div>
-                        <span class="listing-type">For Sale</span>
-                    </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Chicken Manure</h3>
+                    <p>Rich in nitrogen, chicken manure is excellent for leafy vegetables like lettuce, spinach, and cabbage. It promotes fast growth and lush green leaves.</p>
                 </div>
             </div>
-            <div style="text-align: center;">
-                <a href="#" class="btn">View All Listings</a>
+            <div class="listing-card">
+                <div class="listing-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/22e8a4a0-4338-4022-841f-ff1dbdfc46da.png" alt="Composted Pig Manure" />
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Composted Pig Manure</h3>
+                    <p>Composted pig manure improves soil structure and water retention, making it ideal for root crops such as carrots, potatoes, and sweet potatoes.</p>
+                </div>
+            </div>
+            <div class="listing-card">
+                <div class="listing-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1f9b8452-0a8e-49b2-b20e-a0243838c4e4.png" alt="Pre-processed Cattle Manure" />
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Pre-processed Cattle Manure</h3>
+                    <p>Cattle manure is a balanced fertilizer, suitable for grains like rice and corn. It adds organic matter and improves overall crop yield and soil health.</p>
+                </div>
+            </div>
+            <!-- Goat Manure -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9a4b5d0c-6eab-44f0-9bfc-cb8a5f7c1e83.png" alt="Goat Manure" />
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Goat Manure</h3>
+                    <p>Goat manure is dry, easy to handle, and rich in nutrients. It is ideal for vegetable gardens and flowering plants, improving soil aeration and fertility.</p>
+                </div>
+            </div>
+            <!-- Duck Manure -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8eec1ccc-1eae-45bd-9be0-2d3a3cf46b77.png" alt="Duck Manure" />
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Duck Manure</h3>
+                    <p>Duck manure is high in nitrogen and potassium, making it excellent for fruiting plants and vegetables. It decomposes quickly and enriches the soil.</p>
+                </div>
+            </div>
+            <!-- Rabbit Manure -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ecf6c14f-2dfc-4b2d-9e0d-6f0c0b2d3775.png" alt="Rabbit Manure" />
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Rabbit Manure</h3>
+                    <p>Rabbit manure is considered a “cold” manure, safe to use directly on plants. It is perfect for vegetable beds, herbs, and nurseries, providing quick nutrient boost.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -108,14 +124,23 @@
         <h2 class="section-title">Benefits of Using AgriLink</h2>
         <div class="benefits-grid">
             <div class="benefit-card">
+                <div class="benefit-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/farmer-benefit1.png" alt="For Livestock Farmers" />
+                </div>
                 <h3><span class="benefit-icon">🌱</span>For Livestock Farmers</h3>
                 <p>Turn waste into profit by selling excess manure. Reduce disposal costs and environmental impact while contributing to sustainable agriculture.</p>
             </div>
             <div class="benefit-card">
+                <div class="benefit-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/farmer-benefit2.png" alt="For Crop Farmers" />
+                </div>
                 <h3><span class="benefit-icon">🌾</span>For Crop Farmers</h3>
                 <p>Access affordable, high-quality organic fertilizer. Improve soil health and reduce chemical fertilizer costs with locally-sourced nutrients.</p>
             </div>
             <div class="benefit-card">
+                <div class="benefit-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/farmer-benefit3.png" alt="For the Environment" />
+                </div>
                 <h3><span class="benefit-icon">♻️</span>For the Environment</h3>
                 <p>Close the nutrient loop in agriculture. Reduce methane emissions from decomposing waste and prevent water contamination from runoff.</p>
             </div>
@@ -129,24 +154,25 @@
                 <div class="contact-info">
                     <h3>Contact AgriLink</h3>
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <p>123 Agricultural Center, Quezon City, Philippines</p>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <p>6003 Guimbal Canamucan, Compostela, Cebu Province, Philippines</p>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <p>+63 2 1234 5678</p>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <p>+63 920 5850 947</p>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <p>info@agrilink.ph</p>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <p>AgriLink@gmail.com</p>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">⏰</div>
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <p>Monday-Friday: 8:00 AM - 5:00 PM</p>
                     </div>
                 </div>
                 <div class="contact-form">
                     <h3>Send Us a Message</h3>
+                    <div class="form-top-spacer"></div>
                     <form>
                         <div class="form-group">
                             <label for="name">Your Name</label>
@@ -192,6 +218,7 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#suggestion-list">Suggestion List</a></li>
                     <li><a href="#marketplace">Marketplace</a></li>
                     <li><a href="#benefits">Benefits</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -216,7 +243,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2023 AgriLink Philippines. All rights reserved.</p>
+            <p>&copy; 2025 AgriLink Philippines. All rights reserved.</p>
         </div>
     </footer>
 </body>
