@@ -1,89 +1,235 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
-
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.0.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.0.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.0.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriLink | Livestock Waste Exchange for Philippine Farmers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="loginandregister.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e9f5ec 0%, #b6e2c8 50%, #f7fafc 100%);
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80'), linear-gradient(135deg, #e9f5ec 0%, #b6e2c8 50%, #f7fafc 100%);
+            background-size: cover, 100%;
+            background-position: center, center;
+            background-repeat: no-repeat, repeat;
+            min-height: 100vh;
+        }
+        .tab.active {
+            background-color: #2f855a;
+            color: #fff;
+        }
+        .tab.inactive {
+            background-color: #e9f5ec;
+            color: #38a169;
+        }
+        .form-container {
+            background: #fff;
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #38a169, #2f855a);
+            color: #fff;
+            transition: all .2s;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(to right, #2f855a, #38a169);
+        }
+        .link-color {
+            color: #38a169;
+        }
+        .link-color:hover {
+            color: #2f855a;
+            text-decoration: underline;
+        }
+        .language-switcher {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            z-index: 100;
+        }
     </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="fixed inset-0 bg-gradient-to-br from-green-800 to-green-600"></div>
+    <div class="language-switcher z-10">
+        <select class="px-3 py-2 rounded-md bg-white shadow-sm border border-gray-300 focus:outline-none focus:border-green-500">
+            <option value="en">English</option>
+            <option value="fil">Filipino</option>
+        </select>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <div class="relative w-full max-w-md mx-auto my-8 z-20">
+        <div class="flex mb-1 rounded-t-lg overflow-hidden">
+            <button id="login-tab" class="tab active flex-1 py-3 font-medium text-center rounded-tl-lg">Login</button>
+            <button id="register-tab" class="tab inactive flex-1 py-3 font-medium text-center rounded-tr-lg">Register</button>
+        </div>
+        <div class="form-container p-8 rounded-b-lg rounded-tr-lg shadow-xl">
+            <!-- Login Form -->
+            <form id="login-form" class="space-y-6">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-gray-800">Welcome Back!</h2>
+                    <p class="mt-2 text-gray-600">Login to connect with farmers across the Philippines</p>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label for="login-email" class="block text-sm font-medium text-gray-700">Email or Mobile Number</label>
+                        <div class="mt-1">
+                            <input id="login-email" name="email" type="text" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between">
+                            <label for="login-password" class="block text-sm font-medium text-gray-700">Password</label>
+                            <a href="forgetpassword.html" class="text-sm link-color">Forgot password?</a>
+                        </div>
+                        <div class="mt-1">
+                            <input id="login-password" name="password" type="password" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                        <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn-primary w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white">Sign in</button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500"> Or connect with </span>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <button type="button" class="w-full max-w-xs inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/366485c3-3b7e-433e-9218-d1a787877b65.png" alt="Google G logo" class="h-5 w-5 mr-2"> Google
+                    </button>
+                </div>
+                <div class="text-sm text-center">
+                    Don't have an account? <button type="button" onclick="showRegister()" class="font-medium link-color">Sign up</button>
+                </div>
+            </form>
+
+            <!-- Register Form -->
+            <form id="register-form" class="hidden space-y-6">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-gray-800">Create an Account</h2>
+                    <p class="mt-2 text-gray-600">Join our community to trade livestock waste for crops</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label for="first-name" class="block text-sm font-medium text-gray-700">First Name</label>
+                            <div class="mt-1">
+                                <input id="first-name" name="first-name" type="text" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="last-name" class="block text-sm font-medium text-gray-700">Last Name</label>
+                            <div class="mt-1">
+                                <input id="last-name" name="last-name" type="text" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="register-email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <div class="mt-1">
+                            <input id="register-email" name="email" type="email" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="mobile-number" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+                        <div class="mt-1">
+                            <div class="flex">
+                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">+63</span>
+                                <input id="mobile-number" name="mobile" type="tel" required class="input-field flex-1 block w-full rounded-none rounded-r-md px-3 py-2 border border-gray-300 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="register-password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <div class="mt-1">
+                            <input id="register-password" name="password" type="password" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                        </div>
+                        <p class="mt-2 text-sm text-gray-500">Minimum 8 characters with 1 number</p>
+                    </div>
+                    <div>
+                        <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                        <div class="mt-1">
+                            <input id="confirm-password" name="confirm-password" type="password" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                        </div>
+                    </div>
+                    <!-- Removed Are you a... section -->
+                    <div class="flex items-center">
+                        <input id="terms" name="terms" type="checkbox" required class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded">
+                        <label for="terms" class="ml-2 block text-sm text-gray-700">I agree to the <a href="#" class="link-color">Terms of Service</a> and <a href="#" class="link-color">Privacy Policy</a></label>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn-primary w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white">Create Account</button>
+                    </div>
+                </div>
+                <div class="text-sm text-center">
+                    Already have an account? <button type="button" onclick="showLogin()" class="font-medium link-color">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        function showRegister() {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('register-form').classList.remove('hidden');
+            document.getElementById('login-tab').classList.remove('active');
+            document.getElementById('login-tab').classList.add('inactive');
+            document.getElementById('register-tab').classList.remove('inactive');
+            document.getElementById('register-tab').classList.add('active');
         }
-      });
+
+        function showLogin() {
+            document.getElementById('register-form').classList.add('hidden');
+            document.getElementById('login-form').classList.remove('hidden');
+            document.getElementById('register-tab').classList.remove('active');
+            document.getElementById('register-tab').classList.add('inactive');
+            document.getElementById('login-tab').classList.remove('inactive');
+            document.getElementById('login-tab').classList.add('active');
+        }
+
+        document.getElementById('login-tab').addEventListener('click', function () {
+            if (this.classList.contains('inactive')) {
+                showLogin();
+            }
+        });
+
+        document.getElementById('register-tab').addEventListener('click', function () {
+            if (this.classList.contains('inactive')) {
+                showRegister();
+            }
+        });
+
+        document.getElementById('register-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            if (password !== confirmPassword) {
+                alert("Passwords don't match!");
+                return;
+            }
+            if (password.length < 8 || !/\d/.test(password)) {
+                alert("Password must be at least 8 characters with at least 1 number");
+                return;
+            }
+            // Redirect to OTP confirmation page after successful registration
+            window.location.href = "otp-confirmation.html";
+        });
+
+        // Redirect to OTP confirmation after login
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            window.location.href = "otp-confirmation.html";
+        });
     </script>
-  </body>
+</body>
 </html>
