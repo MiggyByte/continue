@@ -59,11 +59,11 @@
             <option value="fil">Filipino</option>
         </select>
     </div>
-    <div class="relative w-full max-w-md mx-auto my-8 z-20">
-        <div class="flex mb-1 rounded-t-lg overflow-hidden">
-            <button id="login-tab" class="tab active flex-1 py-3 font-medium text-center rounded-tl-lg">Login</button>
-            <button id="register-tab" class="tab inactive flex-1 py-3 font-medium text-center rounded-tr-lg">Register</button>
-        </div>
+    <div class="relative w-full max-w-md mx-auto my-8 z-30">
+        <button onclick="window.location.href='index.html'" class="fixed top-6 left-8 flex items-center px-3 py-1 bg-white border border-gray-300 rounded-md shadow-sm text-gray-700 hover:bg-gray-100 z-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            Back
+        </button>
         <div class="form-container p-8 rounded-b-lg rounded-tr-lg shadow-xl">
             <!-- Login Form -->
             <form id="login-form" class="space-y-6">
@@ -104,8 +104,8 @@
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <button type="button" class="w-full max-w-xs inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/366485c3-3b7e-433e-9218-d1a787877b65.png" alt="Google G logo" class="h-5 w-5 mr-2"> Google
+                    <button id="google-login" type="button" class="w-full max-w-xs inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google G logo" class="h-5 w-5 mr-2"> Google
                     </button>
                 </div>
                 <div class="text-sm text-center">
@@ -178,7 +178,24 @@
         </div>
     </div>
 
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <!-- If you need Firebase Auth, include the following -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDnUgt9VSD1bO2Auq_6xQ6Nrb-GZ-0NW3E",
+            authDomain: "agrilink0725.firebaseapp.com",
+            projectId: "agrilink0725",
+            storageBucket: "agrilink0725.firebasestorage.app",
+            messagingSenderId: "624602159408",
+            appId: "1:624602159408:web:8f6def91b075ee23f1d0f5"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
         function showRegister() {
             document.getElementById('login-form').classList.add('hidden');
             document.getElementById('register-form').classList.remove('hidden');
@@ -222,13 +239,27 @@
                 return;
             }
             // Redirect to OTP confirmation page after successful registration
-            window.location.href = "otp-confirmation.html";
+            window.location.href = "loginandregister.html";
         });
 
-        // Redirect to OTP confirmation after login
+        // Redirect to homepage after login
         document.getElementById('login-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            window.location.href = "otp-confirmation.html";
+            window.location.href = "homepage.html";
+        });
+
+        // Google Login functionality using Firebase Auth
+        document.getElementById('google-login').addEventListener('click', function () {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            provider.setCustomParameters({ prompt: 'select_account' });
+            firebase.auth().signInWithPopup(provider)
+                .then(function(result) {
+                    // User signed in
+                    window.location.href = "homepage.html";
+                })
+                .catch(function(error) {
+                    alert("Google sign-in failed: " + error.message);
+                });
         });
     </script>
 </body>

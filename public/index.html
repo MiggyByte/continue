@@ -3,233 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriLink | Livestock Waste Exchange for Philippine Farmers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="loginandregister.css">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #e9f5ec 0%, #b6e2c8 50%, #f7fafc 100%);
-            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80'), linear-gradient(135deg, #e9f5ec 0%, #b6e2c8 50%, #f7fafc 100%);
-            background-size: cover, 100%;
-            background-position: center, center;
-            background-repeat: no-repeat, repeat;
-            min-height: 100vh;
-        }
-        .tab.active {
-            background-color: #2f855a;
-            color: #fff;
-        }
-        .tab.inactive {
-            background-color: #e9f5ec;
-            color: #38a169;
-        }
-        .form-container {
-            background: #fff;
-        }
-        .btn-primary {
-            background: linear-gradient(to right, #38a169, #2f855a);
-            color: #fff;
-            transition: all .2s;
-        }
-        .btn-primary:hover {
-            background: linear-gradient(to right, #2f855a, #38a169);
-        }
-        .link-color {
-            color: #38a169;
-        }
-        .link-color:hover {
-            color: #2f855a;
-            text-decoration: underline;
-        }
-        .language-switcher {
-            position: absolute;
-            top: 24px;
-            right: 32px;
-            z-index: 100;
-        }
-    </style>
+    <meta name="description" content="Connect livestock farmers with crop farmers to exchange organic waste materials in the Philippines. AgriLink helps turn waste into valuable fertilizer.">
+    <title>AgriLink PH | Livestock Waste Exchange Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="agrilink-waste-exchange.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body class="min-h-screen flex items-center justify-center bg-gray-100">
-    <div class="fixed inset-0 bg-gradient-to-br from-green-800 to-green-600"></div>
-    <div class="language-switcher z-10">
-        <select class="px-3 py-2 rounded-md bg-white shadow-sm border border-gray-300 focus:outline-none focus:border-green-500">
-            <option value="en">English</option>
-            <option value="fil">Filipino</option>
-        </select>
-    </div>
-    <div class="relative w-full max-w-md mx-auto my-8 z-20">
-        <div class="flex mb-1 rounded-t-lg overflow-hidden">
-            <button id="login-tab" class="tab active flex-1 py-3 font-medium text-center rounded-tl-lg">Login</button>
-            <button id="register-tab" class="tab inactive flex-1 py-3 font-medium text-center rounded-tr-lg">Register</button>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Agri<span>Link</span></a>
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#suggestion-list">Suggestion List</a></li>
+                <li><a href="#marketplace">Marketplace</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="loginandregister.html" class="login-btn">Login</a>
         </div>
-        <div class="form-container p-8 rounded-b-lg rounded-tr-lg shadow-xl">
-            <!-- Login Form -->
-            <form id="login-form" class="space-y-6">
-                <div class="text-center">
-                    <h2 class="text-2xl font-bold text-gray-800">Welcome Back!</h2>
-                    <p class="mt-2 text-gray-600">Login to connect with farmers across the Philippines</p>
-                </div>
-                <div class="space-y-4">
-                    <div>
-                        <label for="login-email" class="block text-sm font-medium text-gray-700">Email or Mobile Number</label>
-                        <div class="mt-1">
-                            <input id="login-email" name="email" type="text" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between">
-                            <label for="login-password" class="block text-sm font-medium text-gray-700">Password</label>
-                            <a href="forgetpassword.html" class="text-sm link-color">Forgot password?</a>
-                        </div>
-                        <div class="mt-1">
-                            <input id="login-password" name="password" type="password" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
-                        </div>
-                    </div>
-                    <div class="flex items-center">
-                        <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
-                        <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn-primary w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white">Sign in</button>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-gray-300"></div>
-                    </div>
-                    <div class="relative flex justify-center text-sm">
-                        <span class="px-2 bg-white text-gray-500"> Or connect with </span>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    <button type="button" class="w-full max-w-xs inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/366485c3-3b7e-433e-9218-d1a787877b65.png" alt="Google G logo" class="h-5 w-5 mr-2"> Google
-                    </button>
-                </div>
-                <div class="text-sm text-center">
-                    Don't have an account? <button type="button" onclick="showRegister()" class="font-medium link-color">Sign up</button>
-                </div>
-            </form>
-
-            <!-- Register Form -->
-            <form id="register-form" class="hidden space-y-6">
-                <div class="text-center">
-                    <h2 class="text-2xl font-bold text-gray-800">Create an Account</h2>
-                    <p class="mt-2 text-gray-600">Join our community to trade livestock waste for crops</p>
-                </div>
-                <div class="space-y-4">
-                    <div class="grid grid-cols-2 gap-3">
-                        <div>
-                            <label for="first-name" class="block text-sm font-medium text-gray-700">First Name</label>
-                            <div class="mt-1">
-                                <input id="first-name" name="first-name" type="text" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="last-name" class="block text-sm font-medium text-gray-700">Last Name</label>
-                            <div class="mt-1">
-                                <input id="last-name" name="last-name" type="text" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="register-email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                        <div class="mt-1">
-                            <input id="register-email" name="email" type="email" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="mobile-number" class="block text-sm font-medium text-gray-700">Mobile Number</label>
-                        <div class="mt-1">
-                            <div class="flex">
-                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">+63</span>
-                                <input id="mobile-number" name="mobile" type="tel" required class="input-field flex-1 block w-full rounded-none rounded-r-md px-3 py-2 border border-gray-300 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="register-password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <div class="mt-1">
-                            <input id="register-password" name="password" type="password" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
-                        </div>
-                        <p class="mt-2 text-sm text-gray-500">Minimum 8 characters with 1 number</p>
-                    </div>
-                    <div>
-                        <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
-                        <div class="mt-1">
-                            <input id="confirm-password" name="confirm-password" type="password" required class="input-field block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500">
-                        </div>
-                    </div>
-                    <!-- Removed Are you a... section -->
-                    <div class="flex items-center">
-                        <input id="terms" name="terms" type="checkbox" required class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded">
-                        <label for="terms" class="ml-2 block text-sm text-gray-700">I agree to the <a href="#" class="link-color">Terms of Service</a> and <a href="#" class="link-color">Privacy Policy</a></label>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn-primary w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white">Create Account</button>
-                    </div>
-                </div>
-                <div class="text-sm text-center">
-                    Already have an account? <button type="button" onclick="showLogin()" class="font-medium link-color">Sign in</button>
-                </div>
-            </form>
+    </nav>
+    
+    <header>
+        <h1>Connecting Livestock Waste to Crop Farmers</h1>
+        <p>AgriLink transforms organic waste into valuable resources, creating sustainable partnerships between livestock and crop farmers across the Philippines</p>
+        <div>
+            <a href="#suggestion-list" class="btn">Suggestion List</a>
+            <a href="#how-it-works" class="btn btn-outline">Learn More</a>
         </div>
-    </div>
+    </header>
+    
+    <section id="how-it-works" class="container">
+        <h2 class="section-title">How AgriLink Works</h2>
+        <div class="steps">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>List Your Materials</h3>
+                <p>Livestock farmers list available manure, compost, or other organic waste materials</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Find What You Need</h3>
+                <p>Crop farmers search for organic fertilizers in their area and connect with suppliers</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Arrange Exchange</h3>
+                <p>Both parties agree on terms - free exchange, purchase, or transportation arrangements</p>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        function showRegister() {
-            document.getElementById('login-form').classList.add('hidden');
-            document.getElementById('register-form').classList.remove('hidden');
-            document.getElementById('login-tab').classList.remove('active');
-            document.getElementById('login-tab').classList.add('inactive');
-            document.getElementById('register-tab').classList.remove('inactive');
-            document.getElementById('register-tab').classList.add('active');
-        }
-
-        function showLogin() {
-            document.getElementById('register-form').classList.add('hidden');
-            document.getElementById('login-form').classList.remove('hidden');
-            document.getElementById('register-tab').classList.remove('active');
-            document.getElementById('register-tab').classList.add('inactive');
-            document.getElementById('login-tab').classList.remove('inactive');
-            document.getElementById('login-tab').classList.add('active');
-        }
-
-        document.getElementById('login-tab').addEventListener('click', function () {
-            if (this.classList.contains('inactive')) {
-                showLogin();
-            }
-        });
-
-        document.getElementById('register-tab').addEventListener('click', function () {
-            if (this.classList.contains('inactive')) {
-                showRegister();
-            }
-        });
-
-        document.getElementById('register-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const password = document.getElementById('register-password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-            if (password !== confirmPassword) {
-                alert("Passwords don't match!");
-                return;
-            }
-            if (password.length < 8 || !/\d/.test(password)) {
-                alert("Password must be at least 8 characters with at least 1 number");
-                return;
-            }
-            // Redirect to OTP confirmation page after successful registration
-            window.location.href = "otp-confirmation.html";
-        });
-
-        // Redirect to OTP confirmation after login
-        document.getElementById('login-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            window.location.href = "otp-confirmation.html";
-        });
-    </script>
+    <!-- Suggestion List Section -->
+    <section id="suggestion-list" class="container">
+        <h2 class="section-title">Suggestion List for Crop Farmers</h2>
+        <div class="listings">
+            <div class="listing-card">
+                <div class="listing-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6cd44865-88c8-403d-8e89-9efebd92b797.png" alt="Chicken Manure" />
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Chicken Manure</h3>
+                    <p>Rich in nitrogen, chicken manure is excellent for leafy vegetables like lettuce, spinach, and cabbage. It promotes fast growth and lush green leaves.</p>
+                </div>
+            </div>
+            <div class="listing-card">
+                <div class="listing-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/22e8a4a0-4338-4022-841f-ff1dbdfc46da.png" alt="Composted Pig Manure" />
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Composted Pig Manure</h3>
+                    <p>Composted pig manure improves soil structure and water retention, making it ideal for root crops such as carrots, potatoes, and sweet potatoes.</p>
+                </div>
+            </div>
+            <div class="listing-card">
+                <div class="listing-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1f9b8452-0a8e-49b2-b20e-a0243838c4e4.png" alt="Pre-processed Cattle Manure" />
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Pre-processed Cattle Manure</h3>
+                    <p>Cattle manure is a balanced fertilizer, suitable for grains like rice and corn. It adds organic matter and improves overall crop yield and soil health.</p>
+                </div>
+            </div>
+            <!-- Goat Manure -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9a4b5d0c-6eab-44f0-9bfc-cb8a5f7c1e83.png" alt="Goat Manure" />
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Goat Manure</h3>
+                    <p>Goat manure is dry, easy to handle, and rich in nutrients. It is ideal for vegetable gardens and flowering plants, improving soil aeration and fertility.</p>
+                </div>
+            </div>
+            <!-- Duck Manure -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8eec1ccc-1eae-45bd-9be0-2d3a3cf46b77.png" alt="Duck Manure" />
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Duck Manure</h3>
+                    <p>Duck manure is high in nitrogen and potassium, making it excellent for fruiting plants and vegetables. It decomposes quickly and enriches the soil.</p>
+                </div>
+            </div>
+            <!-- Rabbit Manure -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ecf6c14f-2dfc-4b2d-9e0d-6f0c0b2d3775.png" alt="Rabbit Manure" />
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">Rabbit Manure</h3>
+                    <p>Rabbit manure is considered a “cold” manure, safe to use directly on plants. It is perfect for vegetable beds, herbs, and nurseries, providing quick nutrient boost.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="benefits" class="container">
+        <h2 class="section-title">Benefits of Using AgriLink</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/farmer-benefit1.png" alt="For Livestock Farmers" />
+                </div>
+                <h3><span class="benefit-icon">🌱</span>For Livestock Farmers</h3>
+                <p>Turn waste into profit by selling excess manure. Reduce disposal costs and environmental impact while contributing to sustainable agriculture.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/farmer-benefit2.png" alt="For Crop Farmers" />
+                </div>
+                <h3><span class="benefit-icon">🌾</span>For Crop Farmers</h3>
+                <p>Access affordable, high-quality organic fertilizer. Improve soil health and reduce chemical fertilizer costs with locally-sourced nutrients.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/farmer-benefit3.png" alt="For the Environment" />
+                </div>
+                <h3><span class="benefit-icon">♻️</span>For the Environment</h3>
+                <p>Close the nutrient loop in agriculture. Reduce methane emissions from decomposing waste and prevent water contamination from runoff.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact AgriLink</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <p>6003 Guimbal Canamucan, Compostela, Cebu Province, Philippines</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <p>+63 920 5850 947</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <p>AgriLink@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <p>Monday-Friday: 8:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <div class="form-top-spacer"></div>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject">
+                                <option>General Inquiry</option>
+                                <option>Listing a Product</option>
+                                <option>Technical Support</option>
+                                <option>Partnership</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">Agri<span>Link</span></div>
+                <p>Connecting livestock and crop farmers throughout the Philippines to create a sustainable agricultural ecosystem.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#suggestion-list">Suggestion List</a></li>
+                    <li><a href="#marketplace">Marketplace</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Composting Guide</a></li>
+                    <li><a href="#">Livestock Management</a></li>
+                    <li><a href="#">Organic Farming</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Safety Guidelines</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 AgriLink Philippines. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
